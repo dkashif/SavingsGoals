@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Results</h2>
+<p><strong>Goal:</strong> ${{ goal }}</p>
+<p><strong>Current Savings:</strong> ${{ current_savings }}</p>
+<p><strong>Remaining Amount:</strong> ${{ remaining }}</p>
+<p><strong>Estimated Time to Reach Goal:</strong> {{ months }} months</p>
+<p><strong>Progress:</strong> {{ progress }}%</p>
+
+
+
+<a href="/">Go Back</a>
+{% endblock %}

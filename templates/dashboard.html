@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Overall Savings</h1>
+<p>Total Goal: ${{ overall['total_goal'] }}</p>
+<p>Total Current Savings: ${{ overall['total_current_savings'] }}</p>
+<p>Remaining: ${{ overall['remaining'] }}</p>
+<p>Progress: {{ overall['progress'] }}%</p>
+<p>Estimated Months: {{ overall['months'] }}</p>
+
+<h1>Your Savings Goals</h1>
+<table>
+    <tr>
+        <th>Goal Name</th>
+        <th>Target ($)</th>
+        <th>Current Savings ($)</th>
+        <th>Remaining ($)</th>
+        <th>Progress (%)</th>
+        <th>Months</th>
+        <th>Actions</th>
+    </tr>
+    {% for goal in goals %}
+    <tr>
+        <td>{{ goal['name'] }}</td>
+        <td>{{ goal['goal'] }}</td>
+        <td>{{ goal['current_savings'] }}</td>
+        <td>{{ goal['remaining'] }}</td>
+        <td>{{ goal['progress'] | round(2) }}%</td>
+        <td>{{ goal['months'] | round(2) }}</td>
+        <td>
+            <form action="/delete_goal" method="POST" style="display:inline;">
+                <input type="hidden" name="goal_id" value="{{ goal['id'] }}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Add More Goals</a>
+{% endblock %}
+

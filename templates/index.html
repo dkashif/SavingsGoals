@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Track a Total Savings Goal</h2>
+<form method="POST" action="/calculate">
+    <div class="input-box">
+        <input type="number" id="goal" name="goal" step="0.01" min="0" required>
+        <label for="goal">Savings Goal ($):</label>
+
+    </div>
+    <div class="input-box">
+        <input type="number" id="current_savings" name="current_savings" step="0.01" min="0" required>
+        <label for="current_savings">Current Savings ($):</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="monthly_savings" name="monthly_savings" step="0.01" min="0" required>
+        <label for="monthly_savings">Monthly Savings ($):</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="monthly_income" name="monthly_income" step="0.01" min="0" required>
+        <label for="monthly_income">Monthly Income ($):</label>
+    </div>
+    
+    <button type="submit">Calculate</button>
+</form>
+
+<h2>Create Specific Savings Goals</h2>
+<form method="POST" action="/add_goal">
+    <div class="input-box">
+        <input type="text" name="goal_name" required>
+        <label for="goal_name">Goal Name:</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="goal" name="goal" step="0.01" min="0" required>
+        <label for="goal">Savings Goal ($):</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="current_savings" name="current_savings" step="0.01" min="0" required>
+        <label for="current_savings">Current Savings ($):</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="monthly_savings" name="monthly_savings" step="0.01" min="0" required>
+        <label for="monthly_savings">Monthly Savings ($):</label>
+    </div>
+    <div class="input-box">
+        <input type="number" id="monthly_income" name="monthly_income" step="0.01" min="0" required>
+        <label for="monthly_income">Monthly Income ($):</label>
+    </div>
+    
+    <button type="submit">Add Goal</button>
+
+</form>
+{% endblock %}
+
